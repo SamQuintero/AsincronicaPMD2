@@ -15,10 +15,12 @@ int main() {
     addInHeadl(Clist,10);
     addInHeadl(Clist,20);
     addInHeadl(Clist,90);
+    addCAfter(Clist,70,2);
     addNode_tail(Clist,55);
     addNode_tail(Clist,60);
     addBeforel(Clist,40,3);
     printListl(Clist);
+
     prooveConection(Clist);
 
     printf("\n\nLISTA DOBLE\n\n");
@@ -29,6 +31,7 @@ int main() {
     AddToHead(20,dClist);
     AddToTail(5,dClist);
     addBeforeNode(dClist,2,-20);
+    addDAfter(dClist,80,2);
     printDList(dClist);
     prooveDConection(dClist);
 

@@ -10,6 +10,6 @@ void AddToHead(int value, CircleDList dlist);
 void AddToTail(int value, CircleDList dlist);
 void printDList(CircleDList list);
 void addBeforeNode(CircleDList list, int i, int new_value);
-void deleteValue(CircleDList list,int i);
+void addDAfter(CircleDList list, int elem, int i);
 void prooveDConection(CircleDList list);
 #endif //MAIN_C_CIRCLEDLIST_H

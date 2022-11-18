@@ -29,6 +29,7 @@ CircleDList createDList(){
 }
 
 void AddToHead(int value, CircleDList dlist) {
+    printf("Add in head: %d\n",value );
     Node2 *new_node = malloc(sizeof(Node2));
     new_node->value = value;
 
@@ -45,6 +46,7 @@ void AddToHead(int value, CircleDList dlist) {
 }
 
 void AddToTail(int value, CircleDList dlist) {
+    printf("Add at tail: %d\n",value);
     Node2 *new_node = malloc(sizeof(Node2));
     new_node->value = value;
     new_node->next = dlist -> head;
@@ -65,6 +67,7 @@ void AddToTail(int value, CircleDList dlist) {
 }
 
 void addBeforeNode(CircleDList list, int i, int new_value){
+    printf("Add %d before %d\n",new_value, i);
     if(i > list->size || i < 0){
         printf("Node index out of bounds\n");
         return;
@@ -90,7 +93,25 @@ void addBeforeNode(CircleDList list, int i, int new_value){
     current -> prev = new_node;
     list -> size = list -> size + 1;
 }
-
+void addDAfter(CircleDList list, int elem, int i){
+    printf("Add %d After %d\n",elem, i);
+    if (i > list->size || i< 0){
+        printf("Valor de indice no permitido");
+        return;
+    }
+    if (i+1==list->size){
+        AddToTail(elem, list);
+        return;
+    }
+    Node2* current=list->head;
+    Node2 * newNode=malloc(sizeof(Node2));
+    for(int j=0; j< i;j++){
+        current=current->next;
+    }
+    newNode->value=elem;
+    newNode->next=current->next;
+    current->next=newNode;
+}
 void printDList(CircleDList list){
     if(list->size == 0){
         printf("Empty List\n");
@@ -109,7 +130,9 @@ void printDList(CircleDList list){
     printf("\n");
 }
 
+
 void prooveDConection(CircleDList list){
+    printf("Prueva\n");
     printf("El valor de la cabeza es: %d",list->head->value);
     printf("\nEl previo de la cabeza es: %d",list->head->prev->value);
     printf("\nEl valor de la cola es: %d",list->tail->value);

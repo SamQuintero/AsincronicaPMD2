@@ -31,7 +31,7 @@ void printListl(CircleList list){
         printf("Empty List\n");
     }
     else{
-        //printf("List size: %i\n",list->size);
+        printf("List size: %i\n",list->size);
         Node1 *current = list->head;
         while(current!=NULL){
             printf("%d\t",current->value);
@@ -44,6 +44,7 @@ void printListl(CircleList list){
     printf("\n");
 }
 void addInHeadl(CircleList list, int elem ){
+    printf("Add in head: %d\n",elem );
     if (list->size==0){
         Node1 * newhead=malloc(sizeof(Node1));
         newhead->value=elem;
@@ -61,20 +62,9 @@ void addInHeadl(CircleList list, int elem ){
         list->size++;
     }
 }
-/*void addNode_head(CircleList list, int value){
-    //printf("Add %d at head\n",value);
-    Node *new_node = (Node*)malloc(sizeof(Node));
-    new_node->value = value;
-    new_node->next = list->head;
-    if(list->head == list->tail){
-        list->tail = new_node;
-    }
-    list->head = new_node;
-    list->size++;
-}*/
 
 void addNode_tail(CircleList list, int value){
-    // printf("Add %d at tail\n",value);
+     printf("Add at tail: %d\n",value);
     Node1 *new_node = (Node1*)malloc(sizeof(Node1));
     new_node->value = value;
     new_node->next = list->head;
@@ -88,7 +78,7 @@ void addNode_tail(CircleList list, int value){
     list->size++;
 }
 void addBeforel(CircleList list, int value, int i){
-    //printf("Add %d before %d\n",value, i);
+    printf("Add %d before %d\n",value, i);
     if(i > list->size){
         printf("Valor no permitido\n");
         return;
@@ -110,6 +100,24 @@ void addBeforel(CircleList list, int value, int i){
     new_node -> next = current -> next;
     current -> next = new_node;
     list -> size = list -> size + 1;
+}
+void addCAfter(CircleList list, int elem, int i){
+    if (i > list->size || i< 0){
+        printf("Valor de indece no permitido");
+        return;
+    }
+    if (i+1==list->size){
+        addNode_tail(list, elem);
+        return;
+    }
+    Node1* current=list->head;
+    Node1 * newNode=malloc(sizeof(Node1));
+    for(int j=0; j< i;j++){
+        current=current->next;
+    }
+    newNode->value=elem;
+    newNode->next=current->next;
+    current->next=newNode;
 }
 
 void prooveConection(CircleList list){
