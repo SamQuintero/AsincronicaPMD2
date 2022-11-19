@@ -14,11 +14,11 @@ int main() {
     printList(Clist);
     addInHeadl(Clist,10);
     addInHeadl(Clist,20);
-    addInHeadl(Clist,90);
+    addNode_tail(Clist,65);
     addCAfter(Clist,70,2);
     addNode_tail(Clist,55);
-    addNode_tail(Clist,60);
     addBeforel(Clist,40,3);
+    addCAfter(Clist, 4,5);
     printListl(Clist);
 
     prooveConection(Clist);

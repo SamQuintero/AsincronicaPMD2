@@ -22,8 +22,8 @@ struct ListStruct{
 
 CircleDList createDList(){
     CircleDList new_list = malloc(sizeof(struct ListStruct));
-    new_list->head = new_list->tail;
-    new_list->tail = new_list->head;
+    new_list->head = NULL;
+    new_list->tail = NULL;
     new_list->size = 0;
     return new_list;
 }
@@ -51,9 +51,7 @@ void AddToTail(int value, CircleDList dlist) {
     new_node->value = value;
     new_node->next = dlist -> head;
     dlist->head->prev=new_node;
-
     new_node->prev = dlist -> tail;
-
 
     if (dlist->size == 0) {
         dlist->head = new_node;

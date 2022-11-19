@@ -20,8 +20,8 @@ struct ListStruct{
 
 CircleList createList(){
     CircleList new_list = malloc(sizeof(struct ListStruct));
-    new_list->head = new_list->tail;
-    new_list->tail = new_list->head;
+    new_list->head = NULL;
+    new_list->tail = NULL;
     new_list->size = 0;
     return new_list;
 }
